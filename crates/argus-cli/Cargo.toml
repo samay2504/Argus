@@ -6,10 +6,16 @@ rust-version.workspace = true
 license.workspace = true
 description = "Standalone CLI binary for the Argus risk engine"
 
+[[bin]]
+name = "stress"
+path = "src/bin/stress.rs"
+
 [dependencies]
 argus-core = { path = "../argus-core" }
 argus-ingest = { path = "../argus-ingest" }
 tokio.workspace = true
+ringbuf.workspace = true
+crossbeam-utils.workspace = true
 
 [lints]
 workspace = true
