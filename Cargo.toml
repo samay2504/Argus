@@ -1,0 +1,38 @@
+[workspace]
+members = [
+    "crates/argus-core",
+    "crates/argus-ingest",
+    "crates/argus-ffi",
+    "crates/argus-cli",
+]
+resolver = "3"
+
+[workspace.package]
+edition = "2024"
+rust-version = "1.87.0"
+license = "Apache-2.0 OR MIT"
+repository = "https://github.com/samay2504/Argus"
+
+[workspace.lints.clippy]
+pedantic = { level = "deny", priority = -1 }
+module_name_repetitions = "allow"
+must_use_candidate = "allow"
+missing_errors_doc = "allow"
+missing_panics_doc = "allow"
+
+[workspace.lints.rust]
+unsafe_code = "deny"
+
+[workspace.dependencies]
+thiserror = "2"
+arrow = "54"
+pyo3 = { version = "0.23", features = ["extension-module"] }
+pyo3-arrow = "0.7"
+tokio = { version = "1", features = ["full"] }
+yfinance-rs = "0.9"
+ringbuf = "0.4"
+crossbeam-utils = "0.8"
+arrayvec = "0.7"
+proptest = "1"
+criterion = { version = "0.5", features = ["html_reports"] }
+dhat = "0.3"

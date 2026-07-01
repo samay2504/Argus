@@ -1,0 +1,23 @@
+[package]
+name = "argus-ingest"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Data ingestion adapters and shard runtime for the Argus risk engine"
+
+[dependencies]
+argus-core = { path = "../argus-core" }
+thiserror.workspace = true
+arrow.workspace = true
+tokio.workspace = true
+yfinance-rs.workspace = true
+ringbuf.workspace = true
+crossbeam-utils.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true
+dhat.workspace = true
+
+[lints]
+workspace = true

@@ -1,0 +1,12 @@
+# Project-level Cargo configuration
+#
+# No default target is forced here so the project builds natively on every OS:
+#   - Linux/macOS  -> default target automatically
+#   - Windows MSVC -> x86_64-pc-windows-msvc
+#   - Windows GNU  -> x86_64-pc-windows-gnu
+#
+# If your machine lacks the full Windows SDK, set a user-level override in
+# ~/.cargo/config.toml to GNU target and MinGW linker.
+
+[build]
+rustflags = ["-C", "target-cpu=x86-64-v3"]

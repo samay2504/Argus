@@ -1,0 +1,23 @@
+[package]
+name = "argus-core"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Core math engine for the Argus online risk & factor exposure system"
+
+[dependencies]
+thiserror.workspace = true
+arrow.workspace = true
+arrayvec.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true
+criterion.workspace = true
+
+[[bench]]
+name = "core_benchmarks"
+harness = false
+
+[lints]
+workspace = true

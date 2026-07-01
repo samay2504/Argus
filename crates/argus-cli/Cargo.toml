@@ -1,0 +1,15 @@
+[package]
+name = "argus-cli"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Standalone CLI binary for the Argus risk engine"
+
+[dependencies]
+argus-core = { path = "../argus-core" }
+argus-ingest = { path = "../argus-ingest" }
+tokio.workspace = true
+
+[lints]
+workspace = true

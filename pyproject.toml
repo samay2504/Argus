@@ -1,0 +1,45 @@
+[build-system]
+requires = ["maturin>=1.7,<2"]
+build-backend = "maturin"
+
+[project]
+name = "argus"
+version = "0.1.0"
+description = "Online risk & factor exposure engine — sub-millisecond streaming covariance and recursive factor betas"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+readme = "README.md"
+keywords = ["risk", "factor-model", "covariance", "quantitative-finance", "streaming"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Rust",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+dependencies = [
+    "pyarrow>=17",
+    "ccxt>=4",
+    "requests>=2.31",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "numpy>=1.26",
+    "statsmodels>=0.14",
+    "pytest-asyncio>=0.23",
+]
+
+[tool.maturin]
+manifest-path = "crates/argus-ffi/Cargo.toml"
+features = ["pyo3/extension-module"]
+python-source = "python"
+module-name = "argus._argus_core"
+
+[tool.pytest.ini_options]
+markers = [
+    "integration: marks tests that require network access to live data sources",
+]
+testpaths = ["tests/python"]

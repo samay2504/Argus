@@ -1,0 +1,21 @@
+[package]
+name = "argus-ffi"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "PyO3 bindings and Arrow FFI boundary for the Argus risk engine"
+
+[lib]
+name = "_argus_core"
+crate-type = ["cdylib"]
+
+[dependencies]
+argus-core = { path = "../argus-core" }
+argus-ingest = { path = "../argus-ingest" }
+pyo3.workspace = true
+pyo3-arrow.workspace = true
+arrow.workspace = true
+
+[lints]
+workspace = true
